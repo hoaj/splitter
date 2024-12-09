@@ -1,0 +1,12 @@
+**/venv
+**/.env
+**/.DS_Store
+**/__pycache__
+**/*.db
+**/*.db-shm
+**/*.db-wal
+*.json
+*_index
+*.pdf
+**/output*
+**/cache
