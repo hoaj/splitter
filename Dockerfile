@@ -14,5 +14,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Run the main.py script when the container launches
-CMD ["python", "-m", "app.main"]
-# CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# CMD ["python", "-m", "app.main_test"]
+CMD ["uvicorn", "app.main_api:app", "--host", "0.0.0.0", "--port", "8000"]
+
+# docker run --rm -p 8000:8000 splitter
