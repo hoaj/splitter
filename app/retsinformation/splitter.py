@@ -10,9 +10,14 @@ from langchain_text_splitters import (
 
 class Split:
     def __init__(
-        self, input_pdf: str, markdown_output_file: str, json_output_file: str
+        self,
+        input_pdf: str,
+        pdf_title: str,
+        markdown_output_file: str,
+        json_output_file: str,
     ):
         self.input_pdf = input_pdf
+        self.pdf_title = pdf_title
         self.markdown_output_file = markdown_output_file
         self.json_output_file = json_output_file
 
@@ -57,7 +62,7 @@ class Split:
         splits = Util.assign_unique_ids(splits)
         splits = Util.assign_souce_name(
             splits,
-            "Lov om Ledningsejerregistret",
+            self.pdf_title,
         )
         splits = Util.add_page_numbers_to_metadata(splits)
         return splits
@@ -83,5 +88,10 @@ class Split:
 
 
 if __name__ == "__main__":
-    splitter = Split("data/lejeloven.pdf", "data/test.md", "data/test.json")
+    splitter = Split(
+        input_pdf="data/lejeloven.pdf",
+        pdf_title="lejeloven",
+        markdown_output_file="data/test.md",
+        json_output_file="data/test.json",
+    )
     splitter.run()
