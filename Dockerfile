@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:3.9-slim
+FROM python:3.12.3-slim
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
@@ -14,5 +14,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Run the main.py script when the container launches
-CMD ["python", "-m" "app.main"]
+CMD ["python", "-m", "app.main"]
 # CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

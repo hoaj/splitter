@@ -1,19 +1,5 @@
-import os
 from typing import Any
 import anthropic
-from dotenv import load_dotenv
-
-# Load environment variables from .env file in the parent folder
-# load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"))
-
-# Ensure the API key is retrieved correctly
-api_key = os.getenv("ANTHROPIC_API_KEY")
-if not api_key:
-    raise ValueError("ANTHROPIC_API_KEY environment variable is not set")
-
-client = anthropic.Anthropic(
-    api_key=api_key,
-)
 
 
 def situate_context(doc: str, chunk: str) -> tuple[str, Any]:
@@ -32,6 +18,7 @@ def situate_context(doc: str, chunk: str) -> tuple[str, Any]:
         Please give a short succinct context to situate this chunk within the overall document for the purposes of improving search retrieval of the chunk. The answer should be written in danish. Answer only with the succinct context written and nothing else.
         """
 
+    client = anthropic.Anthropic()
     response = client.beta.prompt_caching.messages.create(
         model="claude-3-5-sonnet-latest",
         max_tokens=5000,
