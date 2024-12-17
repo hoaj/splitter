@@ -39,6 +39,7 @@ pydantic_core==2.27.1
 PyMuPDF==1.25.0
 pymupdf4llm==0.0.17
 python-dotenv==1.0.1
+python-multipart==0.0.20
 PyYAML==6.0.2
 requests==2.32.3
 requests-toolbelt==1.0.0

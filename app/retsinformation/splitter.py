@@ -72,7 +72,7 @@ class Split:
         markdown_document = self.convert_pdf_to_markdown()
         markdown_document = Util.add_page_numbers(markdown_document)
         markdown_document = LocalUtil.format_header_retsinformation(markdown_document)
-        self.save_markdown_to_file(markdown_document)
+        # self.save_markdown_to_file(markdown_document)
 
         # Split markdown document
         splits = self.split_markdown_document(markdown_document)
@@ -91,7 +91,7 @@ if __name__ == "__main__":
     splitter = Split(
         input_pdf="data/lejeloven.pdf",
         pdf_title="lejeloven",
-        markdown_output_file="data/test.md",
-        json_output_file="data/test.json",
+        markdown_output_file="data/lejeloven.md",
+        json_output_file="data/lejeloven_chunks.json",
     )
     splitter.run()
