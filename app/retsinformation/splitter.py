@@ -1,5 +1,5 @@
 from app.util.helpers import Util
-from app.retsinformation_splitter.helper import LocalUtil
+from app.retsinformation.helper import LocalUtil
 import pathlib
 import pdf4llm
 from langchain_text_splitters import (
@@ -8,7 +8,7 @@ from langchain_text_splitters import (
 )
 
 
-class Splitter:
+class Split:
     def __init__(
         self, input_pdf: str, markdown_output_file: str, json_output_file: str
     ):
@@ -83,5 +83,5 @@ class Splitter:
 
 
 if __name__ == "__main__":
-    splitter = Splitter("test.pdf", "test.md", "test.json")
+    splitter = Split("data/lejeloven.pdf", "data/test.md", "data/test.json")
     splitter.run()

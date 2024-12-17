@@ -10,4 +10,6 @@
 *.pdf
 **/output*
 **/cache
+**/data
 **/prompt.txt
+**/*.pdf
