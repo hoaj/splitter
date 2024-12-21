@@ -1,6 +1,8 @@
-from fastapi import APIRouter, File, UploadFile
 import json
 import os
+
+from fastapi import APIRouter, File, UploadFile
+
 from app.retsinformation.splitter import Split
 
 router = APIRouter()
